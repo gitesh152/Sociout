@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "sass-watch": "sass --no-source-map --watch assets/scss:assets/css",
-    "dev_script": "node app.js",
+    "dev_script": "nodemon app.js",
     "start": "npm-run-all --parallel sass-watch dev_script"
   },
   "author": "",
@@ -26,6 +26,7 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.4",
+    "nodemon": "^3.0.1",
     "npm-run-all": "^4.1.5",
     "passport": "^0.6.0",
     "passport-google-oauth": "^2.0.0",
