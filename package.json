@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "sass-watch": "sass --no-source-map --watch assets/scss:assets/css",
-    "dev_script": "nodemon app.js",
+    "dev_script": "node app.js",
     "start": "npm-run-all --parallel sass-watch dev_script"
   },
   "author": "",
