@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="/css/chat.css" />
+ <!-- Including bootstrap5 CDN -->
+ <link
+ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+ rel="stylesheet"
+/>
+<link
+ href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+ rel="stylesheet"
+/>
+<aside id="chatbox" class="chatbox">
+  <div class="card border-0" tabindex="-1">
+    <div class="card-header border-0">
+      <h5><i class="bi bi-messenger me-2"></i>Chat Box</h5>
+    </div>
+    <div class="card-body pt-0">
+      <ul
+        id="chat-messages-list"
+        class="border-0"
+        style="
+          list-style-type: none;
+          margin: 0px;
+          padding: 5px;
+          height: 100%;
+          background-color: aliceblue;
+        "
+      >
+        <li class="other-message">
+          <span
+            >Other message ...<br /><sub><i>Other</i></sub></span
+          >
+        </li>
+        <li class="self-message">
+          <span
+            >Self message ...<br /><sub><i>Self</i></sub></span
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer border-0">
+
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          placeholder="message"
+          id="chat-message-input"
+        ></textarea>
+        <label for="chat-message-input">Type Message ...</label>
+        <div class="btn-group dropup px-1">
+          <img
+            class="dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            src="/img/share.svg"
+            />
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item" id="share-location">
+                Share Location
+              </button>
+            </li>
+            <!-- <li><input type="file" onchange="handleFileSelect(event)" /></li>
+            <li><a class="dropdown-item" href="#">Menu item</a></li> -->
+          </ul>
+        </div>
+        <img id="send-message" src="/img/send.svg" class="mx-2" /> 
+      </div>
+      </div>
+    </div>
+  </div>
+</aside>
+<script></script>

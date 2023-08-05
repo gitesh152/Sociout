@@ -1,0 +1,58 @@
+// # Profile
+
+$color_1: #2c384e;
+$color_2: rgba(1, 41, 112, 0.5);
+$color_3: #012970;
+$color_4: rgba(1, 41, 112, 0.6);
+
+.profile {
+  .profile-card {
+    img {
+      max-width: 120px;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: $color_1;
+      margin: 10px 0 0 0;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    .social-links {
+      a {
+        font-size: 20px;
+        display: inline-block;
+        color: $color_2;
+        line-height: 0;
+        margin-right: 10px;
+        transition: 0.3s;
+        &:hover {
+          color: $color_3;
+        }
+      }
+    }
+  }
+  .profile-overview {
+    .row {
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+    .card-title {
+      color: $color_3;
+    }
+    .label {
+      font-weight: 600;
+      color: $color_4;
+    }
+  }
+  .profile-edit {
+    label {
+      font-weight: 600;
+      color: $color_4;
+    }
+    img {
+      max-width: 120px;
+    }
+  }
+}

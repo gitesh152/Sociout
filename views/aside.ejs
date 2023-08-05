@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="/css/aside.css" />
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <!-- End Dashboard Nav -->
+
+    <!-- Start Users Nav -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        data-bs-target="#users-nav"
+        data-bs-toggle="collapse"
+        href="#"
+      >
+        <i class="bi bi-people-fill"></i><span>All Users</span
+        ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+        id="users-nav"
+        class="nav-content collapse"
+        data-bs-parent="#sidebar-nav"
+      >
+        <%- include('users') %>
+      </ul>
+    </li>
+    <!-- End Users Nav -->
+
+    <!-- Start Friends Nav -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        data-bs-target="#friends-nav"
+        data-bs-toggle="collapse"
+        href="#"
+      >
+        <i class="bi bi-person-badge-fill"></i><span>Friends</span
+        ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+        id="friends-nav"
+        class="nav-content collapse"
+        data-bs-parent="#sidebar-nav"
+      >
+        <% if(locals.friends && locals.friends.length>0) {%> <% for (f of
+        friends) {%>
+        <li>
+          <a href="/user/profile/<%= f.userFriend.id %>">
+            <i class="bi bi-circle"></i><span><%= f.userFriend.name %></span>
+          </a>
+          <a
+            href="/friendship/delete/?id=<%= f.userFriend.id %>"
+            class="text-decoration-none"
+          >
+            <i class="delete_friendship bi bi-trash"></i>
+          </a>
+        </li>
+        <%} %> <% } else { %>
+
+        <li class="no_frnd">No friends ...</li>
+
+        <% } %>
+      </ul>
+    </li>
+    <!-- End Friends Nav -->
+
+    <li class="nav-heading">Pages</li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="/user/profile/<%= user.id %>">
+        <i class="bi bi-person"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+    <!-- End Profile Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="/user/faq">
+        <i class="bi bi-question-circle"></i>
+        <span>F.A.Q</span>
+      </a>
+    </li>
+    <!-- End F.A.Q Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="/user/contact">
+        <i class="bi bi-envelope"></i>
+        <span>Contact</span>
+      </a>
+    </li>
+    <!-- End Contact Page Nav -->
+  </ul>
+</aside>
+<!-- End Sidebar-->

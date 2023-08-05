@@ -1,0 +1,106 @@
+// # Header
+
+.logo {
+  line-height: 1;
+}
+
+.logo {
+  max-width: 180px;
+}
+.logo img {
+  max-height: 26px;
+  margin-right: 6px;
+}
+
+.logo span {
+  font-size: 26px;
+  font-weight: 700;
+  color: #012970;
+  font-family: 'Nunito', sans-serif;
+}
+
+.header {
+  transition: all 0.5s;
+  z-index: 997;
+  height: 60px;
+  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+  padding: 0px 220px;
+}
+
+/* Toggle Sidebar Button */
+/* Search Bar */
+.header .toggle-sidebar-btn,
+.toggle-chatbox-btn {
+  font-size: 32px;
+  line-height: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+  color: #012970;
+}
+
+// Header Nav
+.header-nav {
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  }
+  .nav-icon {
+    font-size: 22px;
+    color: #012970;
+    margin-right: 25px;
+    position: relative;
+  }
+  .nav-profile {
+    color: #012970;
+    img {
+      max-height: 36px;
+    }
+    span {
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+  .profile {
+    min-width: 200px;
+    padding-bottom: 0;
+    top: 8px !important;
+  }
+  .dropdown-header {
+    h6 {
+      font-size: 18px;
+      margin-bottom: 0;
+      font-weight: 600;
+      color: #444444;
+    }
+    span {
+      font-size: 14px;
+    }
+  }
+  .dropdown-item {
+    font-size: 14px;
+    padding: 10px 15px;
+    transition: 0.3s;
+    i {
+      margin-right: 10px;
+      font-size: 18px;
+      line-height: 0;
+    }
+  }
+  .dropdown-item:hover {
+    background-color: #f6f9ff;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    padding: 0px 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0px 10%;
+  }
+}

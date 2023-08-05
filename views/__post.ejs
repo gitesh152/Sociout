@@ -1,0 +1,104 @@
+<li id="post-<%= post._id %>" class="mb-1">
+  <div class="card">
+    <div class="card-header bg-white">
+      <div class="row">
+        <div class="col-2 col-md-1">
+          <img
+            class="m-1 border border-1 border-black rounded"
+            src="<%= post.user.avatar %>"
+            style="width: 40px; height: 40px"
+            alt="<%= post.user.name %>"
+          />
+        </div>
+        <div class="col-10 col-md-11 text-start">
+          <blockquote class="blockquote mb-0">
+            <p class="text-primary"><%= post.user.name %></p>
+            <footer class="blockquote-footer">
+              <cite title="Source Title" class="fs-6"
+                ><%= post.createdAt %>
+              </cite>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= post.content %></p>
+    </div>
+    <div class="card-footer bg-white">
+      <div class="mb-1 d-flex grid g-1">
+        <% if( locals.user.id==post.user.id) { %>
+
+        <a class="delete-post-button" href="/post/deletePost/<%= post._id %>">
+          <img src="/img/delete.svg" class="text-primary"
+        /></a>
+
+        <% } %>
+
+        <a
+          class="toggle-like-button text-decoration-none"
+          data-likes="<%= post.likes.length %>"
+          href="/like/toggle/?id=<%= post.id %>&type=post"
+        >
+          <% if (! post.likes.filter(
+          (like)=>like.user==locals.user.id).length>0 ) { %>
+          <img src="/img/like.svg" />
+          <%}else { %>
+          <img src="/img/like_fill.svg" />
+          <%} %>
+
+          <!-- <i class="bi bi-hand-thumbs-up text-primary fa-lg"></i> -->
+          <sup class="text-danger"><b><%= post.likes.length %></b></sup>
+        </a>
+        <a
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseExample-<%= post.id %>"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          <img src="/img/comment.svg" />
+        </a>
+      </div>
+      <div class="collapse" id="collapseExample-<%= post.id %>">
+        <div class="card card-body border border-0 p-0 bg-light">
+          <!-- Comment Section -->
+          <div class="post-comments my-1">
+            <form
+              id="post-<%= post._id %>-comments-form"
+              action="/comment/createComment"
+              method="post"
+              name="post-<%= post._id %>-comments-form"
+              class="d-flex"
+            >
+              <div class="form-floating col-md-10">
+                <textarea
+                  name="content"
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="post-<%= post._id %>-comments-formTextarea"
+                ></textarea>
+                <label for="post-<%= post._id %>-comments-formTextarea"
+                  >Write a comment :)</label
+                >
+              </div>
+              <input type="hidden" name="post" value="<%= post._id %>" />
+              <button type="submit" class="btn btn-primary col-md-2">
+                Comment
+              </button>
+            </form>
+          </div>
+          <div class="post-comment-list">
+            <ul
+              id="post-comments-<%= post.id%>"
+              style="list-style-type: none; margin: 0px; padding: 0px"
+              class="list-group"
+            >
+              <% for (comment of post.comments) { %> <%-
+              include('__comment.ejs') %> <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>

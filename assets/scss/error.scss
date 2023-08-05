@@ -1,0 +1,35 @@
+// # error
+$color_1: #4154f1;
+$color_2: #012970;
+$color_3: #fff;
+
+.error-404 {
+  h1 {
+    font-size: 180px;
+    font-weight: 700;
+    color: $color_1;
+    margin-bottom: 0;
+    line-height: 150px;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: $color_2;
+    margin-bottom: 30px;
+  }
+  .btn {
+    background: #51678f;
+    color: $color_3;
+    padding: 8px 30px;
+    &:hover {
+      background: #3e4f6f;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .error-404 {
+    img {
+      max-width: 50%;
+    }
+  }
+}

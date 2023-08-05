@@ -1,0 +1,15 @@
+$color_1: #4154f1;
+$color_2: #6980aa;
+
+.faq {
+  .basic {
+    h6 {
+      font-size: 18px;
+      font-weight: 600;
+      color: $color_1;
+    }
+    p {
+      color: $color_2;
+    }
+  }
+}

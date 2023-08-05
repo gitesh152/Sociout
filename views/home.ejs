@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="/css/chat.css" />
+<script src="./js/home_like_script.js"></script>
+<script src="./js/home_comment_script.js"></script>
+<script src="./js/home_post_script.js"></script>
+<script>
+  $(' .toggle-like-button').each(function () {
+    let self = this;
+    new ToggleLike(self);
+  });
+</script>
+
+<!-- Here below file will be used at client side as socket subscriber in socket cycle -->
+<script type="text/javascript" src="/js/chat_engine_script.js"></script>
+<% if( locals.user ){ %>
+<!-- Chat Engine Script -->
+<script>
+  new ChatEngine(
+    'user-chat-box',
+    `<%= locals.user.email %>`,
+    '<%= locals.user.name %>',
+    '<%= locals.envIp %>'
+  );
+</script>
+<% } %>
+
+<div class="row">
+  <!-- Website info -->
+  <% if(! locals.user ){ %> <%- include('homeInfo') %> <% } else { %>
+
+  <!-- Form for creating post -->
+  <div id="feed-posts" class="col">
+    <div class="card mb-1">
+      <div class="card-body">
+        <h5 class="card-title">What's on your mind? <%= locals.user.name %></h5>
+
+        <!-- Floating Labels Form -->
+        <form
+          class="row g-1"
+          action="/post/createPost"
+          method="post"
+          id="new-post-form"
+          name="myform"
+        >
+          <div class="col-12">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Write something :)"
+                name="content"
+                id="floatingTextarea"
+                style="height: 80px"
+              ></textarea>
+              <label for="floatingTextarea">Write something :)</label>
+            </div>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary px-3">Reset</button>
+          </div>
+        </form>
+        <!-- End floating Labels Form -->
+      </div>
+    </div>
+
+    <!-- Container for posts -->
+    <div id="post-list-container">
+      <ul style="list-style-type: none; margin: 0px; padding: 0px">
+        <% for (post of posts) { %> <%- include('__post.ejs') %> <% } %>
+      </ul>
+    </div>
+  </div>
+
+  <% } %>
+</div>

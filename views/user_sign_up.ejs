@@ -1,0 +1,168 @@
+<div class="col">
+  <section
+    class="section register min-vh-100 d-flex flex-column align-items-center"
+  >
+    <div class="row justify-content-center">
+      <div
+        class="col-lg-4 col-md-6 d-flex flex-column align-items-md-center justify-content-center"
+      >
+        <!-- Start Logo -->
+        <div class="d-flex justify-content-center py-4">
+          <a
+            href="/"
+            class="logo d-flex align-items-center w-auto text-decoration-none"
+          >
+            <img src="/img/sociout.png" alt="logo" />
+            <span class="d-block fs-1 mx-1">SOCIOUT</span>
+          </a>
+        </div>
+        <!-- End Logo -->
+
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="pt-4 pb-2">
+              <h5 class="card-title text-center pb-0 fs-4">
+                Create an Account
+              </h5>
+              <p class="text-center small">
+                Enter your personal details to create account
+              </p>
+            </div>
+
+            <form
+              class="row g-3"
+              method="post"
+              action="/user/create"
+              onsubmit="return checkPassword()"
+            >
+              <div class="col-12">
+                <label for="yourName" class="form-label">Your Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="yourName"
+                  required
+                />
+                <div class="invalid-feedback">Please, enter your name!</div>
+              </div>
+
+              <div class="col-12">
+                <label for="yourEmail" class="form-label">Your Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  id="yourEmail"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please enter a valid Email adddress!
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="yourPassword" class="form-label"
+                  >Enter Password</label
+                >
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="yourPassword"
+                  required
+                />
+              </div>
+
+              <div class="col-12">
+                <label for="yourConfirmPassword" class="form-label"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  name="confirm_password"
+                  class="form-control"
+                  id="yourConfirmPassword"
+                  required
+                />
+                <div class="form-text">
+                  <input type="checkbox" onclick="toggleShowPassword()" /> Show
+                  Password
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    name="terms"
+                    type="checkbox"
+                    value=""
+                    id="acceptTerms"
+                    required
+                  />
+                  <label class="form-check-label" for="acceptTerms"
+                    >I agree and accept the
+                    <a href="#">terms and conditions</a></label
+                  >
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary w-100" type="submit">
+                  Create Account
+                </button>
+              </div>
+              <div class="col-12">
+                <p class="small mb-0">
+                  Already have an account?
+                  <a href="/user/sign-in">Log in</a>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+  let pass = document.getElementById('yourPassword');
+  let confirmPass = document.getElementById('yourConfirmPassword');
+  function toggleShowPassword() {
+    let type = pass.getAttribute('type') === 'password' ? 'text' : 'password';
+    pass.setAttribute('type', type);
+
+    let confirmtype =
+      confirmPass.getAttribute('type') === 'password' ? 'text' : 'password';
+    confirmPass.setAttribute('type', confirmtype);
+  }
+  function checkPassword() {
+    let errMsg = '';
+
+    if (
+      //password validation ...
+      !pass.value.match(
+        `(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$`
+      )
+    ) {
+      errMsg =
+        'Password must have atleast 8+ length, one upper, one lower, one numeric and one special character(@#$%^&+!=) .';
+    } else if (pass.value !== confirmPass.value) {
+      errMsg = 'Password does not match ...';
+    }
+
+    if (errMsg) {
+      new Noty({
+        layout: 'topRight',
+        theme: 'metroui',
+        type: 'error',
+        text: errMsg,
+        timeout: 5000,
+      }).show();
+      return false;
+    }
+  }
+</script>
