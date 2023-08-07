@@ -3,9 +3,9 @@ class ChatEngine {
     this.chatbox = $(`#${chatBoxId}`);
     this.userEmail = userEmail;
     this.userName = userName;
-    this.envIp = envIp;
+    this.envIp = "http://localhost:5000";
     //Initiate socket connection
-    this.socket = io.connect(`http://localhost:5000`, {
+    this.socket = io.connect(this.envIp, {
       resource: 'nodejs',
       transports: ["websocket"],
     });
