@@ -12,7 +12,7 @@
     <br />
     <a target="_blank" href="https://sociout.onrender.com/" >Live Preview</a>
     <br >
-    (wait for app start from sleep...)
+    (wait for app to restart from sleep ...)
   </p>
 </div>
 
