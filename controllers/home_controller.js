@@ -37,7 +37,7 @@ export default home = async (req, res) => {
     }
 
     // let envIp = process.env.IP;
-    let envIp = localhost;
+    let envIp = 'localhost';
     return res.render('home', {
       posts,
       users,
