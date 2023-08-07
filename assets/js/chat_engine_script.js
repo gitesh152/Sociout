@@ -5,7 +5,7 @@ class ChatEngine {
     this.userName = userName;
     this.envIp = envIp;
     //Initiate socket connection
-    this.socket = io.connect(`http://${this.envIp}:5000`, {
+    this.socket = io.connect(`http://localhost:5000`, {
       resource: 'nodejs',
       transports: ["websocket"],
     });
