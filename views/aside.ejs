@@ -50,7 +50,7 @@
         <% if(locals.friends && locals.friends.length>0) {%> <% for (f of
         friends) {%>
         <li>
-          <a href="/user/profile/<%= f.userFriend.id %>">
+          <a href="/user/profile/<%= f.userFriend.id %>"  style="text-decoration: none;">
             <i class="bi bi-circle"></i><span><%= f.userFriend.name %></span>
           </a>
           <a

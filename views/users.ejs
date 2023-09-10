@@ -1,7 +1,7 @@
 <% if(locals.users && locals.users.length>0) {%> <% for (u of users) {%> <% if
 (locals.user.id!==u.id) { %>
 <li>
-  <a href="/user/profile/<%= u.id %>">
+  <a href="/user/profile/<%= u.id %>" style="text-decoration: none;">
     <i class="bi bi-circle"></i><span><%= u.name %></span>
   </a>
 </li>
