@@ -44,7 +44,7 @@ let createPost = () => {
           <img
             class="m-1 border border-1 border-black rounded"
             src="${post.user.avatar}"
-            style="width: 40px; height: 40px"
+            style="max-width: 40px; max-height: 40px;min-height: 40px;font-size:7px;"
             alt="${post.user.name}"
           />
         </div>
